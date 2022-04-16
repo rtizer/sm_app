@@ -1,0 +1,35 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<div class="content">
+  <h1>Список пользователей</h1>
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="/">Простой список</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/?hierarchy=1">Иерархия</a>
+  </li>
+</ul>
+<ul>
+{% if hierarchy %}
+  {% for user in users if not user.boss_id %}
+    <li>{{ user.name }}</li>
+    {% if user.staff %}
+      <ul>
+        {% for staff in user.staff %}
+        <li>{{ staff.name }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% for user in users %}
+    <li>{{ user.name }}</li>
+  {% endfor %}
+{% endif %}
+
+</ul>
+
+</div>
+{% endblock content %}
