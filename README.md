@@ -27,6 +27,8 @@ Getting Started
 
     env/bin/pip install -e ".[testing]"
 
+- Define sqlalchemy.url in development.ini
+
 - Initialize and upgrade the database using Alembic.
 
     - Generate your first revision.
