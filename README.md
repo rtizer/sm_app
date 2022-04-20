@@ -39,13 +39,13 @@ Getting Started
 
         env/bin/alembic -c development.ini upgrade head
 
-- Load default data into the database using a script.
-
-    env/bin/initialize_sm_db development.ini
-
 - Run your project's tests.
 
     env/bin/pytest
+
+- Load default data into the database using a script.
+
+    env/bin/initialize_sm_db development.ini
 
 - Run JSON documents parser.
 
